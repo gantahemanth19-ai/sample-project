@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreshCart - Premium Online Grocery</title>
+    <meta name="description" content="Shop fresh fruits, vegetables, and daily household essentials with fast delivery.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo" onclick="app.navigate('home')">
+                <span class="logo-icon">🛒</span>Fresh<span class="logo-highlight">Cart</span>
+            </a>
+            
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Search for groceries..." onkeyup="app.handleSearch(event)">
+                <button class="search-btn" onclick="app.executeSearch()">🔍</button>
+            </div>
+
+            <div class="nav-links">
+                <a href="#home" onclick="app.navigate('home')">Home</a>
+                <a href="#categories" onclick="app.navigate('categories')">Categories</a>
+                <a href="#offers" onclick="app.navigate('offers')">Offers</a>
+                <a href="#admin" id="navAdmin" style="display: none;" onclick="app.navigate('admin')">Admin</a>
+            </div>
+
+            <div class="nav-actions">
+                <div class="cart-icon-wrapper" onclick="app.toggleCart()">
+                    <span class="cart-icon">🛍️</span>
+                    <span class="cart-count" id="cartCount">0</span>
+                </div>
+                <div class="user-auth" id="userAuthSection">
+                    <button class="btn-primary btn-small" onclick="app.navigate('login')">Login</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- App Container for dynamic rendering -->
+    <main id="app" class="app-container">
+        <!-- Views will be injected here by app.js -->
+    </main>
+
+    <!-- Shopping Cart Sidebar (Overlay) -->
+    <div class="cart-overlay" id="cartOverlay">
+        <div class="cart-sidebar" id="cartSidebar">
+            <div class="cart-header">
+                <h2>Your Cart</h2>
+                <button class="close-cart" onclick="app.toggleCart()">✕</button>
+            </div>
+            <div class="cart-items" id="cartItems">
+                <!-- Cart items injected here -->
+            </div>
+            <div class="cart-footer">
+                <div class="cart-total">
+                    <span>Total:</span>
+                    <span id="cartTotalPrice">$0.00</span>
+                </div>
+                <button class="btn-primary btn-full checkout-btn" onclick="app.goToCheckout()">Proceed to Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="logo"><span class="logo-icon">🛒</span>Fresh<span class="logo-highlight">Cart</span></div>
+                <p>Bringing premium fresh groceries right to your doorstep.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <a href="#home" onclick="app.navigate('home')">Home</a>
+                <a href="#categories" onclick="app.navigate('categories')">Categories</a>
+                <a href="#about">About Us</a>
+            </div>
+            <div class="footer-col">
+                <h3>Customer Service</h3>
+                <a href="#faq">FAQ</a>
+                <a href="#track" onclick="app.navigate('orders')">Track Order</a>
+                <a href="#returns">Returns</a>
+            </div>
+            <div class="footer-col">
+                <h3>Contact</h3>
+                <p>📞 1-800-FRESH-4U</p>
+                <p>✉️ hi@freshcart.com</p>
+                <p>📍 123 Fresh Lane, Food City</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 FreshCart. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="toast"></div>
+
+    <!-- Scripts -->
+    <script src="js/data.js"></script>
+    <script src="js/store.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
